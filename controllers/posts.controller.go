@@ -152,10 +152,10 @@ func PostGetByID(c *gin.Context) {
 	// reshape response
 	
 	c.JSON(http.StatusOK, gin.H{
-		"Title": post.Title,
-		"Content": post.Content,
-		"Category": post.Category,
-		"Status": post.Status,
+		"title": post.Title,
+		"content": post.Content,
+		"category": post.Category,
+		"status": post.Status,
 	})
 }
 
