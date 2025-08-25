@@ -152,6 +152,7 @@ func PostGetByID(c *gin.Context) {
 	// reshape response
 	
 	c.JSON(http.StatusOK, gin.H{
+		"id": post.ID,
 		"title": post.Title,
 		"content": post.Content,
 		"category": post.Category,
@@ -200,6 +201,7 @@ func PostsList(c *gin.Context) {
 
 	// reshape response
 	type PostResp struct {
+		Id    uint `json:"id"`
 		Title    string `json:"title"`
 		Content  string `json:"content"`
 		Category string `json:"category"`
@@ -208,6 +210,7 @@ func PostsList(c *gin.Context) {
 	resp := make([]PostResp, len(posts))
 	for i, p := range posts {
 		resp[i] = PostResp{
+			Id:    p.ID,
 			Title:    p.Title,
 			Content:  p.Content,
 			Category: p.Category,
