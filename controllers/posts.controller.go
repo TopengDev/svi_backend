@@ -35,6 +35,7 @@ func PostsCreate(c *gin.Context){
 		Category: payload.Category,
 		Status: payload.Status,
 		Created_date:time.Now().Format("2006-01-02"),
+		Updated_date: time.Now().Format("2006-01-02"),
 	}
 
 
