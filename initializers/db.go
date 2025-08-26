@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/topengdev/svi_backend/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -28,6 +29,11 @@ func ConnectDB() {
   }
 
   fmt.Printf("DB.Logger: %v\n", DB.Logger)
+
+  // auto-migrate
+	if err := DB.AutoMigrate(&models.Post{}); err != nil {
+		log.Fatalf("failed to migrate: %v", err)
+	}
 
 
 }
